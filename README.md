@@ -475,8 +475,8 @@ You can generate a PDF or an HTML copy of this guide using
     ```
 
     Some will argue that multiline chaining would look OK with the use of {...}, but they should
-    ask themselves - it this code really readable and can't the blocks contents be extracted into
-    nifty methods.
+    ask themselves - is this code really readable and can't the blocks contents be extracted into
+    nifty methods?
 
 * Avoid `return` where not required.
 
@@ -767,7 +767,7 @@ syntax.
     counter += 1 # increments counter by one
     ```
 
-* Keep existing comments up-to-date. An outdated is worse than no comment
+* Keep existing comments up-to-date. An outdated comment is worse than no comment
 at all.
 
 > Good code is like a good joke - it needs no explanation. <br/>
@@ -1507,7 +1507,7 @@ patch them.)
       end
     end
 
-    # best of all, though, would to define_method as each findable attribute is declared
+    # best of all, though, would be to define_method as each findable attribute is declared
     ```
 
 ## Misc
