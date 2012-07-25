@@ -321,6 +321,19 @@ You can generate a PDF or an HTML copy of this guide using
 
 * Avoid multi-line `?:` (the ternary operator), use `if/unless` instead.
 
+    ```Ruby
+    # bad
+    some_condition ? do_something; and_another_thing : do_something_else
+
+    # good
+    if some_condition
+      do_something
+      and_another_thing
+    else
+      do_something_else
+    end
+    ```
+
 * Favor modifier `if/unless` usage when you have a single-line
   body. Another good alternative is the usage of control flow `and/or`.
 
@@ -707,6 +720,19 @@ syntax.
 
 * When using `reduce` with short blocks, name the arguments `|a, e|`
   (accumulator, element).
+
+  ```Ruby
+  # bad
+  longest = %w{ cat sheep bear }.reduce do |m,w|
+   m.length > w.length ? m : w
+  end
+
+  # good
+  longest = %w{ cat sheep bear }.reduce do |memo,word|
+    memo.length > word.length ? memo : word
+  end
+  ```
+
 * When defining binary operators, name the argument `other`.
 
     ```Ruby
@@ -1202,6 +1228,25 @@ strings.
   implements a collection of unordered values with no duplicates. This
   is a hybrid of `Array`'s intuitive inter-operation facilities and
   `Hash`'s fast lookup.
+
+  ```Ruby
+  # bad
+  def add_if_unique(array, element)
+    array << element
+    array.uniq
+  end
+
+  # good
+  require 'set'
+
+  a = [1,2,3].to_set
+  a << 3
+  a.to_a
+
+  puts a
+  # [1,2,3]
+  ```
+
 * Use symbols instead of strings as hash keys.
 
     ```Ruby
